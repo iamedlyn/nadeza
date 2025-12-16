@@ -18,7 +18,6 @@
     "framer-motion": "^12.12.2",
     "globals": "^16.4.0",
     "lucide-react": "^0.462.0",
-    "next": "^15.4.8",
     "postcss": "^8.4.38",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
