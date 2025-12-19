@@ -4,7 +4,8 @@ import { Theme } from '@radix-ui/themes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CookieConsent from "react-cookie-consent";
+import CookieConsent, { Cookies } from "react-cookie-consent";
+import { loadGTM } from "./src/utils/loadGTM";
 
 // Core Pages
 import Home from './src/pages/Home';
@@ -53,7 +54,17 @@ import PrivacyPolicy from './src/pages/legal/PrivacyPolicy';
 import TermsOfUse from './src/pages/legal/TermsOfUse';
 import CookiePolicy from './src/pages/legal/CookiePolicy';
 
+const GTM_ID = "GTM-PPQJFZCW";
+
 const App: React.FC = () => {
+
+  // ✅ Auto-load GTM on refresh IF consent already exists
+  React.useEffect(() => {
+    if (Cookies.get("nadezaCookieConsent") === "true") {
+      loadGTM(GTM_ID);
+    }
+  }, []);
+
   return (
     <Theme appearance="inherit" radius="large" scaling="100%">
       <Router>
@@ -134,10 +145,7 @@ const App: React.FC = () => {
               borderRadius: "6px",
             }}
             onAccept={() => {
-              console.log("Cookies accepted");
-            }}
-            onDecline={() => {
-              console.log("Cookies declined");
+              loadGTM(GTM_ID);
             }}
           >
             We use cookies to improve your experience, analyze traffic, and personalize content.{" "}
