@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CookieConsent, { Cookies } from "react-cookie-consent";
-import { loadGTM } from "./src/utils/loadGTM";
+import { loadGTM } from "./utils/loadGTM";
 
 // Core Pages
 import Home from './src/pages/Home';
