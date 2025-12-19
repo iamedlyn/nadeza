@@ -20,6 +20,7 @@
     "lucide-react": "^0.462.0",
     "postcss": "^8.4.38",
     "react": "^19.1.1",
+    "react-cookie-consent": "^9.0.0",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.53.0",
     "react-resizable-panels": "^2.1.3",
