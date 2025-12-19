@@ -5,9 +5,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CookieConsent, { Cookies } from "react-cookie-consent";
-import { loadGTM } from "./utils/loadGTM";
+import { loadGTM } from "./src/utils/loadGTM";
 
-// Core Pages
+/* =========================
+   CORE PAGES
+========================= */
 import Home from './src/pages/Home';
 import Services from './src/pages/Services';
 import About from './src/pages/About';
@@ -16,7 +18,9 @@ import Pricing from './src/pages/Pricing';
 import Contact from './src/pages/Contact';
 import NotFound from './src/pages/NotFound';
 
-// Service Pages
+/* =========================
+   SERVICE PAGES
+========================= */
 import WebsiteDesignDevelopment from './src/pages/services/WebsiteDesignDevelopment';
 import HubSpotWordPressShopify from './src/pages/services/HubSpotWordPressShopify';
 import SEO from './src/pages/services/SEO';
@@ -30,7 +34,9 @@ import StrategyConsulting from './src/pages/services/StrategyConsulting';
 import AIAutomation from './src/pages/services/AIAutomation';
 import SocialMediaStrategy from './src/pages/services/SocialMediaStrategy';
 
-// Industry Pages
+/* =========================
+   INDUSTRY PAGES
+========================= */
 import B2BB2CSaaS from './src/pages/industries/B2BB2CSaaS';
 import HealthcareLifeSciences from './src/pages/industries/HealthcareLifeSciences';
 import EcommerceRetail from './src/pages/industries/EcommerceRetail';
@@ -44,21 +50,28 @@ import DentistsHealthClinics from './src/pages/industries/DentistsHealthClinics'
 import NonprofitsCommunityOrganizations from './src/pages/industries/NonprofitsCommunityOrganizations';
 import FoodBeverage from './src/pages/industries/FoodBeverage';
 
-// Company Pages
+/* =========================
+   COMPANY PAGES
+========================= */
 import AffiliateProgram from './src/pages/company/AffiliateProgram';
 import Careers from './src/pages/company/Careers';
 import Blog from './src/pages/company/Blog';
 
-// Legal Pages
+/* =========================
+   LEGAL PAGES
+========================= */
 import PrivacyPolicy from './src/pages/legal/PrivacyPolicy';
 import TermsOfUse from './src/pages/legal/TermsOfUse';
 import CookiePolicy from './src/pages/legal/CookiePolicy';
 
+/* =========================
+   CONFIG
+========================= */
 const GTM_ID = "GTM-PPQJFZCW";
 
 const App: React.FC = () => {
 
-  // ✅ Auto-load GTM on refresh IF consent already exists
+  /* ✅ Auto-load GTM if consent already exists */
   React.useEffect(() => {
     if (Cookies.get("nadezaCookieConsent") === "true") {
       loadGTM(GTM_ID);
@@ -121,6 +134,7 @@ const App: React.FC = () => {
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
+
           </Routes>
 
           {/* COOKIE CONSENT */}
